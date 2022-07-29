@@ -29,12 +29,15 @@ public class CalculatingServices implements Calculating {
                 new MessageResult(result).sendMessage();
                 break;
             case "/":
-                result = (float) number1 / number2;
-
-                new MessageResult(result).sendMessage();
+                if (number2 != 0) {
+                    result = (float) number1 / number2;
+                    new MessageResult(result).sendMessage();
+                }else {
+                    throw new IllegalArgumentException("!!! ERROR !!! Division by zero !!!!");
+                }
                 break;
             default:
-                System.out.println("Нou entered an incorrect math operand!");
+                System.out.println("You entered an incorrect math operand!");
         }
     }
 }
